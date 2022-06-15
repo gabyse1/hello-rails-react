@@ -33,7 +33,8 @@ To get a local copy up and running follow these simple example steps.
 ### Install
 
 - Run the commant `git@github.com:gabyse1/hello-rails-react.git` or `https://github.com/gabyse1/hello-rails-react.git` to clone this repository to your local computer. Choose the location you prefer.
-- Run the command `bundle install` to install all project's dependencies.
+- Run the command `bundle install` to install all project's rails dependencies.
+- Run the command `npm install` to install all project's react dependencies.
 
 ### Usage
 
