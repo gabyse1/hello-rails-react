@@ -1,13 +1,11 @@
 import React from "react"
 import { connect } from 'react-redux';
-import { createStructureSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 
-const GET_GREETINGS_REQUEST = 'GET_GREETINGS_REQUEST';
 const GET_GREETINGS_SUCCESS = 'GET_GREETINGS_SUCCESS';
 
 const getGreetings = () => {
   return dispatch => {
-    dispatch({ type: GET_GREETINGS_REQUEST });
     return fetch('api/greetings')
     .then(response => response.json())
     .then(data => dispatch(getGreetingsSuccess(data)))
@@ -23,10 +21,14 @@ const getGreetingsSuccess = (data) => {
 };
 
 class Greeting extends React.Component {
+  componentWillMount() {
+    this.props.getGreetings()
+  }
+
   render () {
     const { greetings } = this.props
     const greetingsItem = greetings.map((greeting) => {
-      return <h1>{greeting.message}</h1>
+      return greeting.message
     });
 
     return (
@@ -35,14 +37,10 @@ class Greeting extends React.Component {
   }
 }
 
-const structuredSelector = createStructureSelector({
+const structuredSelector = createStructuredSelector({
   greetings: state => state.greetings,
 });
 
 const mapDispatchToProps = { getGreetings };
-
-export {
-  getGreetingsSuccess,
-};
 
 export default connect(structuredSelector, mapDispatchToProps)(Greeting);
