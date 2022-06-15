@@ -15,7 +15,9 @@ const rootReducer = (state, action) => {
   }
 };
 
-export default configureStore = () => {
+const configureStore = () => {
   const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
   return store;
 };
+
+export default configureStore;
