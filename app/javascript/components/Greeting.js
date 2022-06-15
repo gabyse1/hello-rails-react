@@ -24,8 +24,13 @@ const getGreetingsSuccess = (data) => {
 
 class Greeting extends React.Component {
   render () {
+    const { greetings } = this.props
+    const greetingsItem = greetings.map((greeting) => {
+      return <h1>{greeting.message}</h1>
+    });
+
     return (
-      <h1>{this.props.greeting}</h1>
+      <h1>{greetingsItem}</h1>
     );
   }
 }
