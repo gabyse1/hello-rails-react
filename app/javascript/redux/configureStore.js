@@ -7,6 +7,8 @@ const initialState = {
 
 const rootReducer = (state, action) => {
   switch(action.type) {
+    case 'GET_GREETINGS_SUCCESS':
+      return { greetings: action.payload.greetings }
     default:
       return state;
   }
