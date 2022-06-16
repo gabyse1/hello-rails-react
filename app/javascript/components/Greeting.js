@@ -20,6 +20,12 @@ const getGreetingsSuccess = (data) => {
   }
 };
 
+const getColor = () => {
+  const colors = ['crimson', 'blue', 'darkgreen', 'indigo', 'teal'];
+  const colorId = Math.floor(Math.random() * 5);
+  return colors[colorId];
+};
+
 class Greeting extends React.Component {
   componentWillMount() {
     this.props.getGreetings()
@@ -27,12 +33,10 @@ class Greeting extends React.Component {
 
   render () {
     const { greetings } = this.props
-    const greetingsItem = greetings.map((greeting) => {
-      return greeting.message
-    });
+    const greetingsItem = greetings.map((greeting) => greeting.message);
 
     return (
-      <h1>{greetingsItem}</h1>
+      <h1 className={getColor()}>{greetingsItem}</h1>
     );
   }
 }
