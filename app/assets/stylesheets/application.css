@@ -23,6 +23,22 @@ body {
   align-items: center;
 }
 
-h1 {
-  color: #dc143c;
+h1.crimson {
+  color: crimson;
+}
+
+h1.blue {
+  color: blue;
+}
+
+h1.darkgreen {
+  color: darkgreen;
+}
+
+h1.indigo {
+  color: indigo;
+}
+
+h1.teal {
+  color: teal;
 }
